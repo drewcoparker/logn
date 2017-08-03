@@ -4,36 +4,17 @@
 }
 
 /* line 5, ../compass/sass/styles.scss */
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-/* line 10, ../compass/sass/styles.scss */
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #c2c2c2;
+  height: 50px;
   padding: 20px;
   color: white;
 }
 
-/* line 17, ../compass/sass/styles.scss */
-.App-intro {
-  font-size: large;
-}
-
-/* line 21, ../compass/sass/styles.scss */
+/* line 12, ../compass/sass/styles.scss */
 body {
+  background-color: #f7f7f7;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
