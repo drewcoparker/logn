@@ -1,44 +1,43 @@
-/* line 9, ../compass/sass/styles.scss */
-.App {
-  text-align: center;
-}
-
-/* line 13, ../compass/sass/styles.scss */
-.App-header {
-  position: relative;
-  background-color: #C64038;
-  box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.12), 1px 0 2px 0 rgba(0, 0, 0, 0.12);
-  height: 50px;
-  padding: 20px;
-  color: #000022;
+/* line 14, ../compass/sass/styles.scss */
+body {
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
 /* line 22, ../compass/sass/styles.scss */
-.racing-stripe {
-  position: absolute;
-  background-color: #C64038;
-  height: 30px;
+.App-header {
+  background-color: rgba(194, 194, 194, 0.2);
+  box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.2);
+  height: 65px;
+  color: #000022;
+  position: fixed;
   width: 100%;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translate(0, -50%);
+  top: 0;
 }
 
-/* line 33, ../compass/sass/styles.scss */
+/* line 32, ../compass/sass/styles.scss */
+.margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 37, ../compass/sass/styles.scss */
+.inner-header {
+  max-width: 1200px;
+  position: relative;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* line 45, ../compass/sass/styles.scss */
 .brand {
   position: absolute;
   left: 20px;
   top: 50%;
   font-family: "Ewert";
-  font-size: 70px;
+  font-size: 53px;
   transform: translate(0, -50%) skew(-7deg, 0);
-}
-
-/* line 42, ../compass/sass/styles.scss */
-body {
-  background-color: #f7f7f7;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
 }

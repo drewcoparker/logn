@@ -5,8 +5,9 @@ class Navbar extends Component {
     render() {
         return(
             <div className="App-header">
-                
-                <span className="brand">L</span>
+                <div className="inner-header margin-auto">
+                    <span className="brand">L</span>
+                </div>
             </div>
         );
     }
