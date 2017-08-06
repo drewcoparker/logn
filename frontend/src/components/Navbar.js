@@ -6,7 +6,12 @@ class Navbar extends Component {
         return(
             <div className="App-header">
                 <div className="inner-header margin-auto">
-                    <span className="brand">L</span>
+                    <div className="brand">
+                        <span id="l">L</span>
+                        <span id="o">o</span>
+                        <span id="g">g</span>
+                        <span id="n">n</span>
+                    </div>
                 </div>
             </div>
         );
