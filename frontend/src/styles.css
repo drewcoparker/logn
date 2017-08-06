@@ -1,17 +1,41 @@
-/* line 1, ../compass/sass/styles.scss */
+/* line 9, ../compass/sass/styles.scss */
 .App {
   text-align: center;
 }
 
-/* line 5, ../compass/sass/styles.scss */
+/* line 13, ../compass/sass/styles.scss */
 .App-header {
-  background-color: #c2c2c2;
+  position: relative;
+  background-color: #C64038;
+  box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.12), 1px 0 2px 0 rgba(0, 0, 0, 0.12);
   height: 50px;
   padding: 20px;
-  color: white;
+  color: #000022;
 }
 
-/* line 12, ../compass/sass/styles.scss */
+/* line 22, ../compass/sass/styles.scss */
+.racing-stripe {
+  position: absolute;
+  background-color: #C64038;
+  height: 30px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translate(0, -50%);
+}
+
+/* line 33, ../compass/sass/styles.scss */
+.brand {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  font-family: "Ewert";
+  font-size: 70px;
+  transform: translate(0, -50%) skew(-7deg, 0);
+}
+
+/* line 42, ../compass/sass/styles.scss */
 body {
   background-color: #f7f7f7;
   margin: 0;

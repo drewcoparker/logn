@@ -4,7 +4,10 @@ import React, { Component } from 'react';
 class Navbar extends Component {
     render() {
         return(
-            <div className="App-header"></div>
+            <div className="App-header">
+                
+                <span className="brand">L</span>
+            </div>
         );
     }
 }
