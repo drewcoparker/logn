@@ -6,7 +6,7 @@ body {
   font-family: sans-serif;
 }
 
-/* line 22, ../compass/sass/styles.scss */
+/* line 21, ../compass/sass/styles.scss */
 .App-header {
   background-color: rgba(194, 194, 194, 0.2);
   box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.2);
@@ -17,26 +17,27 @@ body {
   top: 0;
 }
 
-/* line 32, ../compass/sass/styles.scss */
+/* line 31, ../compass/sass/styles.scss */
 .margin-auto {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 37, ../compass/sass/styles.scss */
+/* line 36, ../compass/sass/styles.scss */
 .inner-header {
-  max-width: 1000px;
+  max-width: 900px;
   position: relative;
   height: 100%;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-/* line 45, ../compass/sass/styles.scss */
+/* line 44, ../compass/sass/styles.scss */
 .brand {
   position: absolute;
   top: 50%;
   font-family: "Ewert";
+  color: #00C2C2;
   transform: translate(0, -50%);
 }
 /* line 50, ../compass/sass/styles.scss */
@@ -57,4 +58,30 @@ body {
 .brand #n {
   font-size: 35px;
   font-family: "Asul";
+}
+
+/* line 67, ../compass/sass/styles.scss */
+.login {
+  position: absolute;
+  top: 50%;
+  font-family: "Asul";
+  transform: translate(0, -50%);
+  right: 20px;
+  color: #00C2C2;
+  padding: 5px;
+}
+/* line 75, ../compass/sass/styles.scss */
+.login span:hover {
+  cursor: pointer;
+}
+
+/* line 80, ../compass/sass/styles.scss */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  background-color: rgba(255, 255, 255, 0.65);
 }
