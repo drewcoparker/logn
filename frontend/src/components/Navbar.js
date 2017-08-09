@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import LoginModal from './LoginModal';
+import ModalAction from '../actions/ModalAction';
 
 class Navbar extends Component {
+    constructor(props){
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
 
-    handleClick(event) {
-        event.preventDefault();
-        console.log(event);
+    handleClick() {
+        this.props.dispatchModal({
+            modalVisible: true
+        })
     }
 
     render() {
@@ -24,4 +32,10 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        dispatchModal: ModalAction
+    }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Navbar);
