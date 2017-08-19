@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import LoginModal from './LoginModal';
+// import LoginModal from './LoginModal';
 import ModalAction from '../actions/ModalAction';
 
 class Navbar extends Component {
@@ -12,7 +12,7 @@ class Navbar extends Component {
 
     handleClick() {
         this.props.dispatchModal({
-            modalVisible: true
+            showModal: true
         })
     }
 

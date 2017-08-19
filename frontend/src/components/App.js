@@ -9,7 +9,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Navbar />
-                <Modal show={this.props.isModalVisible} />
+                <Modal show={this.props.isModalVisible.showModal} />
             </div>
         );
     }
