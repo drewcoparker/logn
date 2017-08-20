@@ -77,11 +77,51 @@ body {
 
 /* line 80, ../compass/sass/styles.scss */
 .overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 900;
-  background-color: rgba(255, 255, 255, 0.65);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* line 90, ../compass/sass/styles.scss */
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 410px;
+  max-width: 100%;
+  height: 450px;
+  max-height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: #fff;
+  border-radius: 5px;
+}
+
+/* line 104, ../compass/sass/styles.scss */
+.modal-header {
+  font-family: "Asul";
+  text-align: center;
+  margin: 30px 40px;
+}
+
+/* line 110, ../compass/sass/styles.scss */
+.modal-body {
+  margin: 0 40px;
+}
+
+/* line 114, ../compass/sass/styles.scss */
+#email-input, #password-input {
+  border: 1px solid #ccc;
+  height: 36px;
+  padding: 0 5%;
+  width: 90%;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  font-family: helvetica;
+  color: #000;
+  font-size: 1.2rem;
 }
