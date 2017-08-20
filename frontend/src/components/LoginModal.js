@@ -7,10 +7,15 @@ class LoginModal extends Component {
     constructor(props) {
         super(props);
         this.closeModal = this.closeModal.bind(this);
+        this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     }
 
     closeModal() {
         this.props.dispatchModal(false);
+    }
+
+    handleLoginSubmit(event) {
+        event.preventDefault();
     }
 
     render() {
@@ -28,9 +33,10 @@ class LoginModal extends Component {
                             <h1>Login</h1>
                         </div>
                         <div className="modal-body">
-                            <form>
+                            <form onSubmit={this.handleLoginSubmit}>
                                 <input id="email-input" placeholder="Email Address" type="text" />
                                 <input id="password-input" placeholder="Password (case sensitive)" type="password" />
+                                <button className="login-submit-btn" type="submit">Login</button>
                             </form>
                         </div>
                     </div>
