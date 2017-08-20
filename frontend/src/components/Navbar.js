@@ -11,9 +11,7 @@ class Navbar extends Component {
     }
 
     handleClick() {
-        this.props.dispatchModal({
-            showModal: true
-        })
+        this.props.dispatchModal(true);
     }
 
     render() {

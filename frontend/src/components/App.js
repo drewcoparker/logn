@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {Modal, Button} from "react-bootstrap";
 import Navbar from './Navbar.js';
-
+import LoginModal from './LoginModal.js';
+import ModalAction from '../actions/ModalAction';
 class App extends Component {
+
+    handleModalClose() {
+        this.props.dispatchModal(false);
+    }
+
     render() {
         return (
             <div className="App">
+                <LoginModal show={this.props.showModal} />
                 <Navbar />
-                <Modal show={this.props.isModalVisible.showModal} />
             </div>
         );
     }
 }
 
 function mapStateToProps(state) {
-    console.log(state);
     return {
-        isModalVisible: state.modalVisible
+        showModal: state.modalVisible
     }
 }
 
-export default connect(mapStateToProps, null)(App)
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        dispatchModal: ModalAction
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
