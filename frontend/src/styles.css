@@ -1,4 +1,4 @@
-/* line 14, ../compass/sass/styles.scss */
+/* line 15, ../compass/sass/styles.scss */
 body {
   background-color: #fff;
   margin: 0;
@@ -6,7 +6,7 @@ body {
   font-family: sans-serif;
 }
 
-/* line 21, ../compass/sass/styles.scss */
+/* line 22, ../compass/sass/styles.scss */
 .App-header {
   background-color: rgba(194, 194, 194, 0.2);
   box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.2);
@@ -17,13 +17,13 @@ body {
   top: 0;
 }
 
-/* line 31, ../compass/sass/styles.scss */
+/* line 32, ../compass/sass/styles.scss */
 .margin-auto {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 36, ../compass/sass/styles.scss */
+/* line 37, ../compass/sass/styles.scss */
 .inner-header {
   max-width: 1000px;
   position: relative;
@@ -32,7 +32,7 @@ body {
   padding-right: 20px;
 }
 
-/* line 44, ../compass/sass/styles.scss */
+/* line 45, ../compass/sass/styles.scss */
 .brand {
   position: absolute;
   top: 50%;
@@ -40,27 +40,27 @@ body {
   color: #00C2C2;
   transform: translate(0, -50%);
 }
-/* line 50, ../compass/sass/styles.scss */
+/* line 51, ../compass/sass/styles.scss */
 .brand #l {
   font-size: 53px;
 }
-/* line 53, ../compass/sass/styles.scss */
+/* line 54, ../compass/sass/styles.scss */
 .brand #o {
   font-size: 35px;
   font-family: "Asul";
 }
-/* line 57, ../compass/sass/styles.scss */
+/* line 58, ../compass/sass/styles.scss */
 .brand #g {
   font-size: 35px;
   font-family: "Asul";
 }
-/* line 61, ../compass/sass/styles.scss */
+/* line 62, ../compass/sass/styles.scss */
 .brand #n {
   font-size: 35px;
   font-family: "Asul";
 }
 
-/* line 67, ../compass/sass/styles.scss */
+/* line 68, ../compass/sass/styles.scss */
 .login {
   position: absolute;
   top: 50%;
@@ -69,13 +69,14 @@ body {
   right: 20px;
   color: #00C2C2;
   padding: 5px;
+  letter-spacing: 0.12rem;
 }
-/* line 75, ../compass/sass/styles.scss */
+/* line 77, ../compass/sass/styles.scss */
 .login span:hover {
   cursor: pointer;
 }
 
-/* line 80, ../compass/sass/styles.scss */
+/* line 82, ../compass/sass/styles.scss */
 .overlay {
   position: absolute;
   top: 0;
@@ -86,7 +87,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* line 90, ../compass/sass/styles.scss */
+/* line 92, ../compass/sass/styles.scss */
 .modal {
   position: absolute;
   top: 50%;
@@ -101,31 +102,31 @@ body {
   border-radius: 5px;
 }
 
-/* line 104, ../compass/sass/styles.scss */
+/* line 106, ../compass/sass/styles.scss */
 .modal-wrapper {
   position: relative;
 }
 
-/* line 108, ../compass/sass/styles.scss */
+/* line 110, ../compass/sass/styles.scss */
 .button-wrapper {
   position: absolute;
-  top: -21px;
+  top: -23px;
   right: 8px;
 }
 
-/* line 114, ../compass/sass/styles.scss */
+/* line 116, ../compass/sass/styles.scss */
 .close-modal-button {
   height: 40px;
   width: 40px;
   position: relative;
   border-radius: 3px;
 }
-/* line 119, ../compass/sass/styles.scss */
+/* line 121, ../compass/sass/styles.scss */
 .close-modal-button:hover {
   cursor: pointer;
 }
 
-/* line 124, ../compass/sass/styles.scss */
+/* line 126, ../compass/sass/styles.scss */
 .close-modal-button:after {
   position: absolute;
   top: 0;
@@ -139,19 +140,20 @@ body {
   text-align: center;
 }
 
-/* line 136, ../compass/sass/styles.scss */
+/* line 138, ../compass/sass/styles.scss */
 .modal-header {
   font-family: "Asul";
   text-align: center;
   margin: 30px 40px;
+  letter-spacing: 0.2rem;
 }
 
-/* line 142, ../compass/sass/styles.scss */
+/* line 145, ../compass/sass/styles.scss */
 .modal-body {
   margin: 0 40px;
 }
 
-/* line 146, ../compass/sass/styles.scss */
+/* line 149, ../compass/sass/styles.scss */
 #email-input, #password-input {
   border: 1px solid #ccc;
   height: 36px;
@@ -162,10 +164,17 @@ body {
   font-family: helvetica;
   font-size: 1.2rem;
 }
+/* line 159, ../compass/sass/styles.scss */
+#email-input:focus, #password-input:focus {
+  transition: all 0.2s ease-in-out;
+  outline: none !important;
+  border-color: #00C2C2;
+  box-shadow: 0 0 5px rgba(2, 194, 194, 0.5);
+}
 
-/* line 157, ../compass/sass/styles.scss */
+/* line 167, ../compass/sass/styles.scss */
 ::placeholder {
-  color: rgba(153, 153, 153, 0.5);
+  color: rgba(153, 153, 153, 0.45);
   letter-spacing: 0.12rem;
-  font-style: italic;
+  font-size: 1rem;
 }

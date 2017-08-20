@@ -29,8 +29,8 @@ class LoginModal extends Component {
                         </div>
                         <div className="modal-body">
                             <form>
-                                <input id="email-input" placeholder="Email address" type="text" />
-                                <input id="password-input" placeholder="Password" type="text" />
+                                <input id="email-input" placeholder="Email Address" type="text" />
+                                <input id="password-input" placeholder="Password (case sensitive)" type="password" />
                             </form>
                         </div>
                     </div>
