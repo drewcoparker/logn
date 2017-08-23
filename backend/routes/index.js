@@ -33,12 +33,12 @@ router.get('/get-users', (req, res, next) => {
 });
 
 // Login router
-router.get('/login', (req, res, next) => {
-    // var email = req.body.email,
-    //     password = req.body.password;
-    var email = 'drew.i.parker@gmail.com',
-        password = 'thruhike<';
-
+router.all('/login', (req, res, next) => {
+    console.log('hello');
+    var email = req.body.email,
+        password = req.body.password;
+    // var email = 'drew.i.parker@gmail.com',
+    //     password = 'thruhike<';
     userData.findOne({email: email})
         .then((doc) => {
             var docObject = doc.toObject();
@@ -49,9 +49,8 @@ router.get('/login', (req, res, next) => {
             });
         })
         .catch((err) => {
-            res.render('index', { title: 'Error!', msg: err });
             res.json({
-                msg: 'failed to login'
+                msg: 'err'
             });
         });
 });

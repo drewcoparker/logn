@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ModalAction from '../actions/ModalAction';
+import LoginAction from '../actions/LoginAction';
 
 class LoginModal extends Component {
     constructor(props) {
@@ -14,8 +15,16 @@ class LoginModal extends Component {
         this.props.dispatchModal(false);
     }
 
-    handleLoginSubmit(event) {
+    // gets the value from the login form inputs
+    handleLoginSubmit(event){
         event.preventDefault();
+        var email = event.target[0].value,
+            password = event.target[1].value;
+
+        this.props.loginSubmit({
+            email: email,
+            password: password
+        });
     }
 
     render() {
@@ -49,7 +58,8 @@ class LoginModal extends Component {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        dispatchModal: ModalAction
+        dispatchModal: ModalAction,
+        loginSubmit: LoginAction
     }, dispatch)
 }
 

@@ -200,12 +200,11 @@ body {
 .login-submit-btn:hover {
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: box-shadow, color, letter-spacing;
-  color: #36F1CD;
+  transition-property: box-shadow, letter-spacing;
   box-shadow: 0 0 5px #36F1CD;
   letter-spacing: 0.18rem;
 }
-/* line 196, ../compass/sass/styles.scss */
+/* line 195, ../compass/sass/styles.scss */
 .login-submit-btn:focus {
   outline: 0;
 }
