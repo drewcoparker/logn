@@ -34,15 +34,13 @@ router.get('/get-users', (req, res, next) => {
 
 // Login router
 router.all('/login', (req, res, next) => {
-    console.log('hello');
+    // Data sent in the request
     var email = req.body.email,
         password = req.body.password;
-    // var email = 'drew.i.parker@gmail.com',
-    //     password = 'thruhike<';
+    // Find the email address in the backend and verify the password
     userData.findOne({email: email})
         .then((doc) => {
             var docObject = doc.toObject();
-            // res.render('index', { title: 'Welcome.', msg: `${docObject.username} now logged in.` });
             res.json({
                 login: true,
                 name: docObject.username

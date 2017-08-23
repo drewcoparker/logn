@@ -4,7 +4,7 @@ import LoginReducer from "./LoginReducer.js";
 
 const masterReducer = combineReducers({
     modalVisible: ModalReducer,
-    login: LoginReducer
+    loginResponse: LoginReducer
 });
 
 export default masterReducer
