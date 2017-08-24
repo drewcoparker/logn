@@ -40,15 +40,21 @@ router.all('/login', (req, res, next) => {
     // Find the email address in the backend and verify the password
     userData.findOne({email: email})
         .then((doc) => {
-            var docObject = doc.toObject();
-            res.json({
-                login: true,
-                name: docObject.username
-            });
+            if (doc.password === password) {
+                var docObject = doc.toObject();
+                res.json({
+                    login: true,
+                    name: docObject.username
+                });
+            } else {
+                res.json({
+                    msg: 'Invalid password'
+                })
+            }
         })
         .catch((err) => {
             res.json({
-                msg: 'err'
+                msg: 'Invalid email'
             });
         });
 });

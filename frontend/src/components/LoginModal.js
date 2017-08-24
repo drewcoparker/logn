@@ -28,8 +28,9 @@ class LoginModal extends Component {
     }
 
     render() {
-        if (!this.props.show)
+        if (!this.props.show) {
             return null;
+        }
 
         return (
             <div className="modal-state">
@@ -53,6 +54,12 @@ class LoginModal extends Component {
                 <div className="overlay" onClick={this.closeModal}></div>
             </div>
         );
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        loggedIn: state.loginResponse.login
     }
 }
 
