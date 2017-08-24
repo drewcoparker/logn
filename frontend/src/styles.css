@@ -183,10 +183,8 @@ body {
 
 /* line 175, ../compass/sass/styles.scss */
 .login-submit-btn {
-  position: absolute;
-  right: 0;
+  margin-bottom: 20px;
   border: none;
-  margin-top: 5px;
   width: 120px;
   height: 32px;
   letter-spacing: 0.12rem;
@@ -196,7 +194,7 @@ body {
   box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.2);
   color: #fff;
 }
-/* line 188, ../compass/sass/styles.scss */
+/* line 189, ../compass/sass/styles.scss */
 .login-submit-btn:hover {
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -204,7 +202,33 @@ body {
   box-shadow: 0 0 5px #36F1CD;
   letter-spacing: 0.18rem;
 }
-/* line 195, ../compass/sass/styles.scss */
+/* line 196, ../compass/sass/styles.scss */
 .login-submit-btn:focus {
   outline: 0;
+}
+
+/* line 201, ../compass/sass/styles.scss */
+.login-info {
+  margin-top: 20px;
+  width: 100%;
+  height: 125px;
+  border: 1px solid #ccc;
+}
+
+/* line 209, ../compass/sass/styles.scss */
+.login-info-header {
+  position: relative;
+  height: 36px;
+  color: rgba(153, 153, 153, 0.45);
+  letter-spacing: 0.12rem;
+  font-size: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+/* line 217, ../compass/sass/styles.scss */
+.login-info-header span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -48,6 +48,12 @@ class LoginModal extends Component {
                                 <input id="password-input" placeholder="Password (case sensitive)" type="password" />
                                 <button className="login-submit-btn" type="submit">Login</button>
                             </form>
+                            <div className="login-info">
+                                <div className="login-info-header"><span>Login Response:</span></div>
+                                <div className="login-info-body">
+                                    <span>{}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -56,10 +62,10 @@ class LoginModal extends Component {
         );
     }
 }
-
+// this.props.loginResponse.msg || `Welcome ${this.props.loginResponse.name
 function mapStateToProps(state) {
     return {
-        loggedIn: state.loginResponse.login
+        loginResponse: state.loginResponse
     }
 }
 
