@@ -7,8 +7,35 @@ import LoginAction from '../actions/LoginAction';
 class LoginModal extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            msg: ''
+        }
         this.closeModal = this.closeModal.bind(this);
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
+    }
+
+    componentDidMount() {
+
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.loginResponse !== nextProps.loginResponse) {
+            if (nextProps.loginResponse.name) {
+                let user = nextProps.loginResponse.name;
+                this.setState({
+                    msg: `Welcome ${user}`
+                })
+            } else if (nextProps.loginResponse.msg) {
+                let failMsg = nextProps.loginResponse.msg;
+                this.setState({
+                    msg: failMsg
+                })
+            } else {
+                this.setState({
+                    msg: 'Something went wrong'
+                })
+            }
+        }
     }
 
     closeModal() {
@@ -51,7 +78,7 @@ class LoginModal extends Component {
                             <div className="login-info">
                                 <div className="login-info-header"><span>Login Response:</span></div>
                                 <div className="login-info-body">
-                                    <span>{}</span>
+                                    <span>{this.state.msg}</span>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +89,7 @@ class LoginModal extends Component {
         );
     }
 }
-// this.props.loginResponse.msg || `Welcome ${this.props.loginResponse.name
+
 function mapStateToProps(state) {
     return {
         loginResponse: state.loginResponse
@@ -76,4 +103,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(LoginModal);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginModal);
