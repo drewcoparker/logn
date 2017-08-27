@@ -16,6 +16,10 @@ var Schema = mongoose.Schema,
     userDataSchema = new Schema({
         email: { type: String, required: true, index: { unique: true} },
         password: { type: String, required: true },
+        name: {
+            first: { type: String, required: true},
+            last: { type: String, required: true}
+        }
     }, { collection: 'users' }),
     userData = mongoose.model('UserData', userDataSchema);
 
@@ -28,12 +32,12 @@ router.get('/', function(req, res, next) {
 router.get('/get-users', (req, res, next) => {
   userData.find()
     .then((docs) => {
-        console.log(docs);
+        res.json(docs);
     })
 });
 
 // Login router
-router.all('/login', (req, res, next) => {
+router.post('/login', (req, res, next) => {
     // Data sent in the request
     var email = req.body.email,
         password = req.body.password;
@@ -41,7 +45,7 @@ router.all('/login', (req, res, next) => {
     userData.findOne({email: email})
         .then((doc) => {
             if (doc.password === password) {
-                var docObject = doc.toObject();
+                var docObject = doc.toJSON();
                 res.json({
                     login: true,
                     name: docObject.username

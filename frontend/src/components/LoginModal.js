@@ -15,7 +15,7 @@ class LoginModal extends Component {
     }
 
     componentDidMount() {
-
+        // Not used for now
     }
 
     componentWillReceiveProps(nextProps) {
@@ -23,7 +23,7 @@ class LoginModal extends Component {
             if (nextProps.loginResponse.name) {
                 let user = nextProps.loginResponse.name;
                 this.setState({
-                    msg: `Welcome ${user}`
+                    msg: user
                 })
             } else if (nextProps.loginResponse.msg) {
                 let failMsg = nextProps.loginResponse.msg;
