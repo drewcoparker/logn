@@ -13,7 +13,7 @@ class App extends Component {
         return (
             <div className="App">
                 <LoginModal show={this.props.showLoginModal} />
-                <RegisterModal show={this.props.registerModalVisible} />
+                <RegisterModal show={this.props.showRegisterModal} />
                 <Navbar />
             </div>
         );
