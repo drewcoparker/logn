@@ -37,7 +37,7 @@ router.get('/get-users', (req, res, next) => {
 });
 
 // Login router
-router.post('/login', (req, res, next) => {
+router.post('/login', (req, res) => {
     // Data sent in the request
     var email = req.body.email,
         password = req.body.password;
