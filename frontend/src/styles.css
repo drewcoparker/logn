@@ -61,7 +61,7 @@ body {
 }
 
 /* line 69, ../compass/sass/styles.scss */
-.login {
+.login-register {
   position: absolute;
   top: 50%;
   font-family: "Asul";
@@ -72,11 +72,20 @@ body {
   letter-spacing: 0.12rem;
 }
 /* line 78, ../compass/sass/styles.scss */
-.login span:hover {
+.login-register ul {
+  list-style-type: none;
+}
+/* line 80, ../compass/sass/styles.scss */
+.login-register ul li {
+  display: inline;
+}
+
+/* line 87, ../compass/sass/styles.scss */
+.login span:hover, .register span:hover {
   cursor: pointer;
 }
 
-/* line 83, ../compass/sass/styles.scss */
+/* line 92, ../compass/sass/styles.scss */
 .overlay {
   position: absolute;
   top: 0;
@@ -87,7 +96,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* line 93, ../compass/sass/styles.scss */
+/* line 102, ../compass/sass/styles.scss */
 .modal {
   position: absolute;
   top: 50%;
@@ -102,31 +111,31 @@ body {
   border-radius: 5px;
 }
 
-/* line 107, ../compass/sass/styles.scss */
+/* line 116, ../compass/sass/styles.scss */
 .modal-wrapper {
   position: relative;
 }
 
-/* line 111, ../compass/sass/styles.scss */
+/* line 120, ../compass/sass/styles.scss */
 .button-wrapper {
   position: absolute;
   top: -23px;
   right: 8px;
 }
 
-/* line 117, ../compass/sass/styles.scss */
+/* line 126, ../compass/sass/styles.scss */
 .close-modal-button {
   height: 40px;
   width: 40px;
   position: relative;
   border-radius: 3px;
 }
-/* line 122, ../compass/sass/styles.scss */
+/* line 131, ../compass/sass/styles.scss */
 .close-modal-button:hover {
   cursor: pointer;
 }
 
-/* line 127, ../compass/sass/styles.scss */
+/* line 136, ../compass/sass/styles.scss */
 .close-modal-button:after {
   position: absolute;
   top: 0;
@@ -140,7 +149,7 @@ body {
   text-align: center;
 }
 
-/* line 139, ../compass/sass/styles.scss */
+/* line 148, ../compass/sass/styles.scss */
 .modal-header {
   font-family: "Asul";
   text-align: center;
@@ -148,13 +157,13 @@ body {
   letter-spacing: 0.2rem;
 }
 
-/* line 146, ../compass/sass/styles.scss */
+/* line 155, ../compass/sass/styles.scss */
 .modal-body {
   margin: 20px 40px;
   position: relative;
 }
 
-/* line 151, ../compass/sass/styles.scss */
+/* line 160, ../compass/sass/styles.scss */
 #email-input, #password-input {
   border: 1px solid #ccc;
   height: 36px;
@@ -165,7 +174,7 @@ body {
   font-family: helvetica;
   font-size: 1.2rem;
 }
-/* line 160, ../compass/sass/styles.scss */
+/* line 169, ../compass/sass/styles.scss */
 #email-input:focus, #password-input:focus {
   outline: none !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -174,14 +183,14 @@ body {
   box-shadow: 0 0 5px rgba(2, 194, 194, 0.5);
 }
 
-/* line 169, ../compass/sass/styles.scss */
+/* line 178, ../compass/sass/styles.scss */
 ::placeholder {
   color: rgba(153, 153, 153, 0.45);
   letter-spacing: 0.12rem;
   font-size: 1rem;
 }
 
-/* line 175, ../compass/sass/styles.scss */
+/* line 184, ../compass/sass/styles.scss */
 .login-submit-btn {
   margin-bottom: 20px;
   border: none;
@@ -194,7 +203,7 @@ body {
   box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.2);
   color: #fff;
 }
-/* line 189, ../compass/sass/styles.scss */
+/* line 198, ../compass/sass/styles.scss */
 .login-submit-btn:hover {
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -202,18 +211,18 @@ body {
   box-shadow: 0 0 5px #36F1CD;
   letter-spacing: 0.18rem;
 }
-/* line 196, ../compass/sass/styles.scss */
+/* line 205, ../compass/sass/styles.scss */
 .login-submit-btn:focus {
   outline: 0;
 }
 
-/* line 201, ../compass/sass/styles.scss */
+/* line 210, ../compass/sass/styles.scss */
 .login-info {
   margin-top: 20px;
   width: 100%;
 }
 
-/* line 208, ../compass/sass/styles.scss */
+/* line 217, ../compass/sass/styles.scss */
 .login-info-header {
   position: relative;
   height: 36px;
@@ -223,7 +232,7 @@ body {
   text-align: center;
   border: 1px solid #ccc;
 }
-/* line 216, ../compass/sass/styles.scss */
+/* line 225, ../compass/sass/styles.scss */
 .login-info-header span {
   position: absolute;
   top: 50%;
@@ -231,7 +240,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* line 224, ../compass/sass/styles.scss */
+/* line 233, ../compass/sass/styles.scss */
 .login-info-body {
   position: relative;
   height: 70px;
@@ -242,7 +251,7 @@ body {
   border-top: none;
   text-transform: capitalize;
 }
-/* line 233, ../compass/sass/styles.scss */
+/* line 242, ../compass/sass/styles.scss */
 .login-info-body span {
   position: absolute;
   top: 43%;
