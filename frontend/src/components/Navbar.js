@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import LoginModalAction from '../actions/LoginModalAction';
+import RegisterModalAction from '../actions/RegisterModalAction';
 
 class Navbar extends Component {
     constructor(props){
@@ -11,11 +12,11 @@ class Navbar extends Component {
     }
 
     handleLoginClick() {
-        this.props.dispatchModal(true);
+        this.props.dispatchLoginModal(true);
     }
 
     handleRegisterClick() {
-
+        this.props.dispatchRegisterModal(true);
     }
 
     render() {
@@ -44,7 +45,8 @@ class Navbar extends Component {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        dispatchModal: LoginModalAction
+        dispatchLoginModal: LoginModalAction,
+        dispatchRegisterModal: RegisterModalAction
     }, dispatch)
 }
 

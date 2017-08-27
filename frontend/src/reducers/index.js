@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
-import ModalReducer from "./ModalReducer.js";
+import LoginModalReducer from "./LoginModalReducer.js";
+import RegisterModalReducer from "./RegisterModalReducer.js";
 import LoginReducer from "./LoginReducer.js";
 
 const masterReducer = combineReducers({
-    modalVisible: ModalReducer,
+    loginModalVisible: LoginModalReducer,
+    registerModalVisible: RegisterModalReducer,
     loginResponse: LoginReducer
 });
 
