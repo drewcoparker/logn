@@ -9,15 +9,11 @@ import RegisterModalAction from '../actions/RegisterModalAction';
 
 class App extends Component {
 
-    handleModalClose() {
-        this.props.dispatchLoginModal(false);
-    }
-
     render() {
         return (
             <div className="App">
-                <LoginModal show={this.props.showModal} />
-                <RegisterModal show={this.props.showModal} />
+                <LoginModal show={this.props.showLoginModal} />
+                <RegisterModal show={this.props.registerModalVisible} />
                 <Navbar />
             </div>
         );
@@ -26,15 +22,9 @@ class App extends Component {
 
 function mapStateToProps(state) {
     return {
-        showModal: state.modalVisible
+        showLoginModal: state.loginModalVisible,
+        showRegisterModal: state.registerModalVisible
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-        dispatchLoginModal: LoginModalAction,
-        dispatchRegisterModal: RegisterModalAction
-    }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, null)(App)
