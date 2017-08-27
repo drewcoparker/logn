@@ -3,17 +3,21 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Navbar from './Navbar.js';
 import LoginModal from './LoginModal.js';
-import ModalAction from '../actions/ModalAction';
+import RegisterModal from './RegisterModal.js';
+import LoginModalAction from '../actions/LoginModalAction';
+import RegisterModalAction from '../actions/RegisterModalAction';
+
 class App extends Component {
 
     handleModalClose() {
-        this.props.dispatchModal(false);
+        this.props.dispatchLoginModal(false);
     }
 
     render() {
         return (
             <div className="App">
                 <LoginModal show={this.props.showModal} />
+                <RegisterModal show={this.props.showModal} />
                 <Navbar />
             </div>
         );
@@ -28,7 +32,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        dispatchModal: ModalAction
+        dispatchLoginModal: LoginModalAction,
+        dispatchRegisterModal: RegisterModalAction
     }, dispatch)
 }
 

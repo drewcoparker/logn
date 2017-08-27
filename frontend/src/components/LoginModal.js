@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import ModalAction from '../actions/ModalAction';
+import LoginModalAction from '../actions/LoginModalAction';
 import LoginAction from '../actions/LoginAction';
 
 class LoginModal extends Component {
@@ -98,7 +98,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        dispatchModal: ModalAction,
+        dispatchModal: LoginModalAction,
         loginSubmit: LoginAction
     }, dispatch)
 }
