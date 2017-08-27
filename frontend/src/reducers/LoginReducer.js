@@ -1,8 +1,8 @@
-export default function(state = false, action){
+export default function(state = {}, action){
 	switch(action.type){
-		case "LOGIN_MODAL":
+		case "LOGIN":
 			return action.payload;
-		case "REGISTER_MODAL":
+		case "LOGOUT":
 			return action.payload;
 		default:
 			return state;

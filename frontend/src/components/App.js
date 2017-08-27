@@ -2,30 +2,38 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Navbar from './Navbar.js';
-import LoginModal from './LoginModal';
-import ModalAction from '../actions/ModalAction';
+import LoginModal from './LoginModal.js';
+import RegisterModal from './RegisterModal.js';
+import LoginModalAction from '../actions/LoginModalAction';
+import RegisterModalAction from '../actions/RegisterModalAction';
 
 class App extends Component {
+
+    handleModalClose() {
+        this.props.dispatchLoginModal(false);
+    }
+
     render() {
         return (
             <div className="App">
+                <LoginModal show={this.props.showModal} />
+                <RegisterModal show={this.props.showModal} />
                 <Navbar />
-                <LoginModal show={this.props.modalVisible} />
             </div>
         );
     }
 }
 
 function mapStateToProps(state) {
-    console.log(state);
     return {
-        modalVisible: state.modalVisible
+        showModal: state.modalVisible
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        dispatchModal: ModalAction
+        dispatchLoginModal: LoginModalAction,
+        dispatchRegisterModal: RegisterModalAction
     }, dispatch)
 }
 

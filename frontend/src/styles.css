@@ -1,4 +1,4 @@
-/* line 14, ../compass/sass/styles.scss */
+/* line 16, ../compass/sass/styles.scss */
 body {
   background-color: #fff;
   margin: 0;
@@ -6,7 +6,7 @@ body {
   font-family: sans-serif;
 }
 
-/* line 21, ../compass/sass/styles.scss */
+/* line 23, ../compass/sass/styles.scss */
 .App-header {
   background-color: rgba(194, 194, 194, 0.2);
   box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.2);
@@ -17,22 +17,22 @@ body {
   top: 0;
 }
 
-/* line 31, ../compass/sass/styles.scss */
+/* line 33, ../compass/sass/styles.scss */
 .margin-auto {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 36, ../compass/sass/styles.scss */
+/* line 38, ../compass/sass/styles.scss */
 .inner-header {
-  max-width: 900px;
+  max-width: 1000px;
   position: relative;
   height: 100%;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-/* line 44, ../compass/sass/styles.scss */
+/* line 46, ../compass/sass/styles.scss */
 .brand {
   position: absolute;
   top: 50%;
@@ -40,28 +40,28 @@ body {
   color: #00C2C2;
   transform: translate(0, -50%);
 }
-/* line 50, ../compass/sass/styles.scss */
+/* line 52, ../compass/sass/styles.scss */
 .brand #l {
   font-size: 53px;
 }
-/* line 53, ../compass/sass/styles.scss */
+/* line 55, ../compass/sass/styles.scss */
 .brand #o {
   font-size: 35px;
   font-family: "Asul";
 }
-/* line 57, ../compass/sass/styles.scss */
+/* line 59, ../compass/sass/styles.scss */
 .brand #g {
   font-size: 35px;
   font-family: "Asul";
 }
-/* line 61, ../compass/sass/styles.scss */
+/* line 63, ../compass/sass/styles.scss */
 .brand #n {
   font-size: 35px;
   font-family: "Asul";
 }
 
-/* line 67, ../compass/sass/styles.scss */
-.login {
+/* line 69, ../compass/sass/styles.scss */
+.login-register {
   position: absolute;
   top: 50%;
   font-family: "Asul";
@@ -69,19 +69,192 @@ body {
   right: 20px;
   color: #00C2C2;
   padding: 5px;
+  letter-spacing: 0.12rem;
 }
-/* line 75, ../compass/sass/styles.scss */
-.login span:hover {
+/* line 78, ../compass/sass/styles.scss */
+.login-register ul {
+  list-style-type: none;
+}
+/* line 80, ../compass/sass/styles.scss */
+.login-register ul li {
+  display: inline;
+}
+
+/* line 87, ../compass/sass/styles.scss */
+.login span:hover, .register span:hover {
   cursor: pointer;
 }
 
-/* line 80, ../compass/sass/styles.scss */
+/* line 92, ../compass/sass/styles.scss */
 .overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 900;
-  background-color: rgba(255, 255, 255, 0.65);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* line 102, ../compass/sass/styles.scss */
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 410px;
+  max-width: 100%;
+  height: 450px;
+  max-height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: #fff;
+  border-radius: 5px;
+}
+
+/* line 116, ../compass/sass/styles.scss */
+.modal-wrapper {
+  position: relative;
+}
+
+/* line 120, ../compass/sass/styles.scss */
+.button-wrapper {
+  position: absolute;
+  top: -23px;
+  right: 8px;
+}
+
+/* line 126, ../compass/sass/styles.scss */
+.close-modal-button {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  border-radius: 3px;
+}
+/* line 131, ../compass/sass/styles.scss */
+.close-modal-button:hover {
+  cursor: pointer;
+}
+
+/* line 136, ../compass/sass/styles.scss */
+.close-modal-button:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "\274c";
+  /* use the hex value here... */
+  font-size: 25px;
+  line-height: 43px;
+  text-align: center;
+}
+
+/* line 148, ../compass/sass/styles.scss */
+.modal-header {
+  font-family: "Asul";
+  text-align: center;
+  margin: 30px 40px;
+  letter-spacing: 0.2rem;
+}
+
+/* line 155, ../compass/sass/styles.scss */
+.modal-body {
+  margin: 20px 40px;
+  position: relative;
+}
+
+/* line 160, ../compass/sass/styles.scss */
+#email-input, #password-input {
+  border: 1px solid #ccc;
+  height: 36px;
+  padding: 0 5%;
+  width: 89.5%;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  font-family: helvetica;
+  font-size: 1.2rem;
+}
+/* line 169, ../compass/sass/styles.scss */
+#email-input:focus, #password-input:focus {
+  outline: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: border-color, box-shadow;
+  border-color: #00C2C2;
+  box-shadow: 0 0 5px rgba(2, 194, 194, 0.5);
+}
+
+/* line 178, ../compass/sass/styles.scss */
+::placeholder {
+  color: rgba(153, 153, 153, 0.45);
+  letter-spacing: 0.12rem;
+  font-size: 1rem;
+}
+
+/* line 184, ../compass/sass/styles.scss */
+.login-submit-btn {
+  margin-bottom: 20px;
+  border: none;
+  width: 120px;
+  height: 32px;
+  letter-spacing: 0.12rem;
+  border-radius: 2px;
+  font-size: 1rem;
+  background-color: #00C2C2;
+  box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+/* line 198, ../compass/sass/styles.scss */
+.login-submit-btn:hover {
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: box-shadow, letter-spacing;
+  box-shadow: 0 0 5px #36F1CD;
+  letter-spacing: 0.18rem;
+}
+/* line 205, ../compass/sass/styles.scss */
+.login-submit-btn:focus {
+  outline: 0;
+}
+
+/* line 210, ../compass/sass/styles.scss */
+.login-info {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* line 217, ../compass/sass/styles.scss */
+.login-info-header {
+  position: relative;
+  height: 36px;
+  color: rgba(153, 153, 153, 0.45);
+  letter-spacing: 0.12rem;
+  font-size: 1rem;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+/* line 225, ../compass/sass/styles.scss */
+.login-info-header span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 233, ../compass/sass/styles.scss */
+.login-info-body {
+  position: relative;
+  height: 70px;
+  color: rgba(153, 153, 153, 0.45);
+  letter-spacing: 0.2rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-top: none;
+  text-transform: capitalize;
+}
+/* line 242, ../compass/sass/styles.scss */
+.login-info-body span {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
