@@ -1,27 +1,41 @@
 var express = require('express'),
     router = express.Router(),
     bcrypt = require('bcrypt'),
-    SALT_WORK_FACTOR = 10,
     mongoose = require('mongoose'),
     server = 'mongodb://localhost:27017/logn';
-
+const SALT_WORK_FACTOR = 10;
 // Mongo connection
 mongoose.connect(server, (err) => {
     if (err) throw err;
     console.log(`\nConnected to ${server}`);
 });
 
-// Define a schema
-var Schema = mongoose.Schema,
-    userDataSchema = new Schema({
+// Define a schema and a model
+var Schema = mongoose.Schema;
+var userSchema = new Schema({
         email: { type: String, required: true, index: { unique: true} },
         password: { type: String, required: true },
         name: {
             first: { type: String, required: true},
             last: { type: String, required: true}
-        }
-    }, { collection: 'users' }),
-    userData = mongoose.model('UserData', userDataSchema);
+        },
+        created_at: {type: Date, default: Date.now},
+        updated_at: {type: Date}
+    }, { collection: 'users' });
+
+// Populate the created_at and/or updated_at fields before every save
+userSchema.pre('save', function(next) {
+    // get the current date
+    var currentDate = new Date();
+    // change the updated_at field to current date
+    this.updated_at = currentDate;
+    // if created_at doesn't exist, add to that field
+    if (!this.created_at)
+        this.created_at = currentDate;
+    next();
+});
+
+var User = mongoose.model('User', userSchema);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -30,7 +44,7 @@ router.get('/', function(req, res, next) {
 
 // Get all users route (never called by the frontend)
 router.get('/get-users', (req, res, next) => {
-  userData.find()
+  User.find()
     .then((docs) => {
         res.json(docs);
     })
@@ -42,7 +56,7 @@ router.post('/login', (req, res) => {
     var email = req.body.email,
         password = req.body.password;
     // Find the email address in the backend and verify the password
-    userData.findOne({email: email})
+    User.findOne({email: email})
         .then((doc) => {
             if (doc.password === password) {
                 var docObject = doc.toJSON();
@@ -61,6 +75,30 @@ router.post('/login', (req, res) => {
                 msg: 'Invalid email'
             });
         });
+});
+
+router.post('/register', (req, res) => {
+    // var firstName = req.body.firstName,
+    //     lastName = req.body.lastName,
+    //     email = req.body.email,
+    //     password = bcrypt.hashSync(req.body.password, SALT_WORK_FACTOR);
+
+    var newUser = new User ({
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, SALT_WORK_FACTOR),
+        name: {
+            first: req.body.firstName,
+            last: req.body.lastName
+        }
+    });
+
+    newUser.save((err) => {
+        if (err) throw err;
+        res.json({
+            msg: 'New user created'
+        })
+    })
+
 });
 
 module.exports = router;

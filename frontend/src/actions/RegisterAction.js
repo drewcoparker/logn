@@ -5,7 +5,7 @@ var RegisterAction = (registerData) => {
 
     var thePromise = $.ajax({
         method: "POST",
-        url: "http://localhost:3001/login",
+        url: "http://localhost:3001/register",
         data: registerData
     });
     return{
