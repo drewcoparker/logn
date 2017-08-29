@@ -26,15 +26,35 @@ var userSchema = new Schema({
 
 // Populate the created_at and/or updated_at fields before every save
 userSchema.pre('save', function(next) {
+    var user = this;
     // get the current date
     var currentDate = new Date();
     // change the updated_at field to current date
     this.updated_at = currentDate;
     // if created_at doesn't exist, add to that field
-    if (!this.created_at)
-        this.created_at = currentDate;
-    next();
+    if (!this.created_at) this.created_at = currentDate;
+
+    // Hash the new user's password and salt it
+    bcrypt.hash(user.password, SALT_WORK_FACTOR)
+        .then(function(hash) {
+            user.password = hash;
+            next();
+        })
+        .catch(function(err) {
+            return next(err);
+        })
 });
+
+// Create a method on the userSchema to compare a password to its hashed/salted version
+userSchema.methods.comparePassword = function(candidatePassword, result) {
+    bcrypt.compare(candidatePassword, this.password)
+        .then(function(isMatch) {
+            result(null, isMatch);
+        })
+        .catch(function(err) {
+            return result(err);
+        })
+}
 
 var User = mongoose.model('User', userSchema);
 
@@ -56,82 +76,54 @@ router.post('/login', (req, res) => {
     // Data sent in the request
     var username = req.body.username,
         password = req.body.password;
-    // Find the email address in the backend and verify the password
-    User.findOne({username: username})
-        .then((doc) => {
-            bcrypt.compare(password, hash)
-                .then((result) => {
-                    console.log(result);
-                    if (result) {
-                        var docObject = doc.toJSON();
-                        res.json({
-                            login: true,
-                            msg: 'Login successful',
-                            name: docObject.username
-                        });
-                    } else {
-                        res.json({
-                            msg: 'Invalid password'
-                        })
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
+
+    User.findOne({ username: username })
+        .then(function(user) {
+            user.comparePassword(password, function(err, isMatch) {
+                if (err) throw err;
+                if (isMatch) {
+                    res.json({
+                        msg: 'Login success',
+                        name: user.username,
+                        login: true
+                    })
+                } else {
                     res.json({
                         msg: 'Invalid password'
-                    });
-                });
-            // if (doc.password === password) {
-            //     var docObject = doc.toJSON();
-            //     res.json({
-            //         login: true,
-            //         name: docObject.username
-            //     });
-            // } else {
-            //     res.json({
-            //         msg: 'Invalid password'
-            //     })
-            // }
+                    })
+                }
+            })
         })
-        .catch((err) => {
-            console.log(err);
+        .catch(function(err) {
             res.json({
                 msg: 'Invalid username'
-            });
-        });
+            })
+        })
 });
 
 router.post('/register', (req, res) => {
 
-    bcrypt.hash(req.body.password, SALT_WORK_FACTOR)
-        .then((hash) => {
-            console.log(hash);
-            var newUser = new User ({
-                email: req.body.email,
-                username: req.body.username,
-                password: hash,
-                name: {
-                    first: req.body.firstName,
-                    last: req.body.lastName
-                }
+    var newUser = new User ({
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password,
+        name: {
+            first: req.body.firstName,
+            last: req.body.lastName
+        }
+    });
+
+    newUser.save()
+        .then((doc) => {
+            res.json({
+                msg: 'New user created'
             });
-            newUser.save()
-                .then((doc) => {
-                    console.log(doc);
-                    res.json({
-                        msg: 'New user created'
-                    });
-                })
-                .catch((err) => {
-                    console.log(err);
-                    res.json({
-                        msg: 'Registration failed'
-                    });
-                });
         })
         .catch((err) => {
-            console.log(err);
-        })
+            res.json({
+                msg: 'Registration failed'
+            });
+        });
 });
 
 module.exports = router;
