@@ -22,12 +22,14 @@ class RegisterModal extends Component {
         event.preventDefault();
         var firstName = event.target[0].value,
             lastName = event.target[1].value,
-            email = event.target[2].value,
-            password = event.target[3].value;
+            username = event.target[2].value,
+            email = event.target[3].value,
+            password = event.target[4].value;
 
         this.props.registerSubmit({
             firstName: firstName,
             lastName: lastName,
+            username: username,
             email: email,
             password: password
         });
@@ -52,6 +54,7 @@ class RegisterModal extends Component {
                             <form onSubmit={this.handleRegisterSubmit}>
                                 <input id="first-name-input" placeholder="First name" type="text" />
                                 <input id="last-name-input" placeholder="Last name" type="text" />
+                                <input id="user-name-input" placeholder="Username" type="text" />
                                 <input id="email-input" placeholder="Email Address" type="text" />
                                 <input id="password-input" placeholder="Password (case sensitive)" type="password" />
                                 <button className="login-submit-btn" type="submit">Submit</button>

@@ -13,8 +13,9 @@ mongoose.connect(server, (err) => {
 // Define a schema and a model
 var Schema = mongoose.Schema;
 var userSchema = new Schema({
-        email: { type: String, required: true, index: { unique: true} },
+        email: { type: String, required: true},
         password: { type: String, required: true },
+        username: { type: String, required: true, index: { unique: true} },
         name: {
             first: { type: String, required: true},
             last: { type: String, required: true}
@@ -53,52 +54,84 @@ router.get('/get-users', (req, res, next) => {
 // Login router
 router.post('/login', (req, res) => {
     // Data sent in the request
-    var email = req.body.email,
+    var username = req.body.username,
         password = req.body.password;
     // Find the email address in the backend and verify the password
-    User.findOne({email: email})
+    User.findOne({username: username})
         .then((doc) => {
-            if (doc.password === password) {
-                var docObject = doc.toJSON();
-                res.json({
-                    login: true,
-                    name: docObject.username
-                });
-            } else {
-                res.json({
-                    msg: 'Invalid password'
+            bcrypt.compare(password, hash)
+                .then((result) => {
+                    console.log(result);
+                    if (result) {
+                        var docObject = doc.toJSON();
+                        res.json({
+                            login: true,
+                            msg: 'Login successful',
+                            name: docObject.username
+                        });
+                    } else {
+                        res.json({
+                            msg: 'Invalid password'
+                        })
+                    }
                 })
-            }
+                .catch((err) => {
+                    console.log(err);
+                    res.json({
+                        msg: 'Invalid password'
+                    });
+                });
+            // if (doc.password === password) {
+            //     var docObject = doc.toJSON();
+            //     res.json({
+            //         login: true,
+            //         name: docObject.username
+            //     });
+            // } else {
+            //     res.json({
+            //         msg: 'Invalid password'
+            //     })
+            // }
         })
         .catch((err) => {
+            console.log(err);
             res.json({
-                msg: 'Invalid email'
+                msg: 'Invalid username'
             });
         });
 });
 
 router.post('/register', (req, res) => {
-    // var firstName = req.body.firstName,
-    //     lastName = req.body.lastName,
-    //     email = req.body.email,
-    //     password = bcrypt.hashSync(req.body.password, SALT_WORK_FACTOR);
 
-    var newUser = new User ({
-        email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, SALT_WORK_FACTOR),
-        name: {
-            first: req.body.firstName,
-            last: req.body.lastName
-        }
-    });
-
-    newUser.save((err) => {
-        if (err) throw err;
-        res.json({
-            msg: 'New user created'
+    bcrypt.hash(req.body.password, SALT_WORK_FACTOR)
+        .then((hash) => {
+            console.log(hash);
+            var newUser = new User ({
+                email: req.body.email,
+                username: req.body.username,
+                password: hash,
+                name: {
+                    first: req.body.firstName,
+                    last: req.body.lastName
+                }
+            });
+            newUser.save()
+                .then((doc) => {
+                    console.log(doc);
+                    res.json({
+                        msg: 'New user created'
+                    });
+                })
+                .catch((err) => {
+                    console.log(err);
+                    res.json({
+                        msg: 'Registration failed'
+                    });
+                });
         })
-    })
-
+        .catch((err) => {
+            console.log(err);
+        })
 });
 
 module.exports = router;
