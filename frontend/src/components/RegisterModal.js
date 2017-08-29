@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import RegisterModalAction from '../actions/RegisterModalAction';
+import RegisterAction from '../actions/RegisterAction';
 
 class RegisterModal extends Component {
     constructor(props) {
@@ -10,18 +11,35 @@ class RegisterModal extends Component {
             msg: ''
         }
         this.closeModal = this.closeModal.bind(this);
+        this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
     }
 
     closeModal() {
         this.props.dispatchModal(false);
     }
 
+    handleRegisterSubmit(event){
+        event.preventDefault();
+        var firstName = event.target[0].value,
+            lastName = event.target[1].value,
+            username = event.target[2].value,
+            email = event.target[3].value,
+            password = event.target[4].value;
+
+        this.props.registerSubmit({
+            firstName: firstName,
+            lastName: lastName,
+            username: username,
+            email: email,
+            password: password
+        });
+    }
+
     render() {
         if (!this.props.show) {
-            console.log('register modal null')
             return null;
         }
-        console.log('register modal true')
+
         return(
             <div className="modal-state">
                 <div className="modal">
@@ -33,17 +51,14 @@ class RegisterModal extends Component {
                             <h1>Register</h1>
                         </div>
                         <div className="modal-body">
-                            <form>
+                            <form onSubmit={this.handleRegisterSubmit}>
+                                <input id="first-name-input" placeholder="First name" type="text" />
+                                <input id="last-name-input" placeholder="Last name" type="text" />
+                                <input id="user-name-input" placeholder="Username" type="text" />
                                 <input id="email-input" placeholder="Email Address" type="text" />
                                 <input id="password-input" placeholder="Password (case sensitive)" type="password" />
                                 <button className="login-submit-btn" type="submit">Submit</button>
                             </form>
-                            <div className="login-info">
-                                <div className="login-info-header"><span>Response:</span></div>
-                                <div className="login-info-body">
-                                    <span></span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,7 +77,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         dispatchModal: RegisterModalAction,
-        // registerSubmit: RegisterAction
+        registerSubmit: RegisterAction
     }, dispatch)
 }
 

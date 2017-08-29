@@ -45,11 +45,11 @@ class LoginModal extends Component {
     // gets the value from the login form inputs
     handleLoginSubmit(event){
         event.preventDefault();
-        var email = event.target[0].value,
+        var username = event.target[0].value,
             password = event.target[1].value;
 
         this.props.loginSubmit({
-            email: email,
+            username: username,
             password: password
         });
     }
@@ -71,7 +71,7 @@ class LoginModal extends Component {
                         </div>
                         <div className="modal-body">
                             <form onSubmit={this.handleLoginSubmit}>
-                                <input id="email-input" placeholder="Email Address" type="text" />
+                                <input id="username-input" placeholder="Username" type="text" />
                                 <input id="password-input" placeholder="Password (case sensitive)" type="password" />
                                 <button className="login-submit-btn" type="submit">Login</button>
                             </form>
