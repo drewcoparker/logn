@@ -8,7 +8,8 @@ class RegisterModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            msg: ''
+            msg: '',
+
         }
         this.closeModal = this.closeModal.bind(this);
         this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
@@ -25,6 +26,20 @@ class RegisterModal extends Component {
             username = event.target[2].value,
             email = event.target[3].value,
             password = event.target[4].value;
+
+        // var eventObj = {
+        //     firstName : event.target[0].value,
+        //     lastName : event.target[1].value,
+        //     username : event.target[2].value,
+        //     email : event.target[3].value,
+        //     password : event.target[4].value
+        // }
+        //
+        // for (value in eventObj) {
+        //     if (!value) {
+        //
+        //     }
+        // }
 
         this.props.registerSubmit({
             firstName: firstName,
@@ -52,11 +67,11 @@ class RegisterModal extends Component {
                         </div>
                         <div className="modal-body">
                             <form onSubmit={this.handleRegisterSubmit}>
-                                <input id="first-name-input" placeholder="First name" type="text" />
-                                <input id="last-name-input" placeholder="Last name" type="text" />
-                                <input id="user-name-input" placeholder="Username" type="text" />
-                                <input id="email-input" placeholder="Email Address" type="text" />
-                                <input id="password-input" placeholder="Password (case sensitive)" type="password" />
+                                <input name="firstName" className="modal-input" placeholder="First name" type="text" />
+                                <input name="lastName" className="modal-input" placeholder="Last name" type="text" />
+                                <input name="username" className="modal-input" placeholder="Username" type="text" />
+                                <input name="email" className="modal-input" placeholder="Email Address" type="text" />
+                                <input name="password" className="modal-input" placeholder="Password (case sensitive)" type="password" />
                                 <button className="login-submit-btn" type="submit">Submit</button>
                             </form>
                         </div>
@@ -70,7 +85,7 @@ class RegisterModal extends Component {
 
 function mapStateToProps(state) {
     return {
-        loginResponse: state.loginResponse
+        registerResponse: state.registerResponse
     }
 }
 
@@ -81,4 +96,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(RegisterModal);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterModal);

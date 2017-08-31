@@ -22,7 +22,7 @@ var userSchema = new Schema({
         },
         created_at: {type: Date, default: Date.now},
         updated_at: {type: Date}
-    }, { collection: 'users' });
+    });
 
 // Populate the created_at and/or updated_at fields before every save
 userSchema.pre('save', function(next) {

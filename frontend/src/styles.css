@@ -164,7 +164,7 @@ body {
 }
 
 /* line 160, ../compass/sass/styles.scss */
-#email-input, #username-input, #password-input, #first-name-input, #last-name-input, #user-name-input {
+.modal-input {
   border: 1px solid #ccc;
   height: 36px;
   padding: 0 5%;
@@ -175,7 +175,7 @@ body {
   font-size: 1.2rem;
 }
 /* line 169, ../compass/sass/styles.scss */
-#email-input:focus, #username-input:focus, #password-input:focus, #first-name-input:focus, #last-name-input:focus, #user-name-input:focus {
+.modal-input:focus {
   outline: none !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: border-color, box-shadow;

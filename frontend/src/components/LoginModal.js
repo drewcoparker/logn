@@ -71,8 +71,8 @@ class LoginModal extends Component {
                         </div>
                         <div className="modal-body">
                             <form onSubmit={this.handleLoginSubmit}>
-                                <input id="username-input" placeholder="Username" type="text" />
-                                <input id="password-input" placeholder="Password (case sensitive)" type="password" />
+                                <input className="modal-input" placeholder="Username" type="text" />
+                                <input className="modal-input" placeholder="Password (case sensitive)" type="password" />
                                 <button className="login-submit-btn" type="submit">Login</button>
                             </form>
                             <div className="login-info">
