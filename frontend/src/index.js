@@ -16,7 +16,7 @@ import reducers from './reducers/index.js';
 // local storage. This allows the user to reamin logged in while navigating
 // througout the app and even after she leaves closes the browser and returns
 // to the page.
-import { loadState, /*saveState */ } from './localStorage';
+import { loadState, saveState } from './localStorage';
 const persistedState = loadState();
 
 // Instantiate the store obect with createStore method. The reducers param is
@@ -31,9 +31,12 @@ const store = createStore(
     )
 )
 
-store.subscribe(() =>
-  console.log(store.getState())
-)
+store.subscribe(() => {
+    // console.log(store.getState());
+    saveState({
+        loginResponse: store.getState().loginResponse
+    })
+})
 
 ReactDOM.render(
     <Provider store={store}>
