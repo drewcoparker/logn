@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import LoginModalAction from '../actions/LoginModalAction';
+import LogoutAction from '../actions/LogoutAction';
 import RegisterModalAction from '../actions/RegisterModalAction';
 
 class Authorization extends Component {
@@ -9,10 +10,11 @@ class Authorization extends Component {
         super(props);
         this.handleLoginClick = this.handleLoginClick.bind(this);
         this.handleRegisterClick = this.handleRegisterClick.bind(this);
+        this.handleLogoutClick = this.handleLogoutClick.bind(this);
     }
 
     handleLogoutClick() {
-        // this.props.
+        this.props.dispatchLogout(false);
     }
 
     handleLoginClick() {
@@ -67,7 +69,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         dispatchLoginModal: LoginModalAction,
-        dispatchRegisterModal: RegisterModalAction
+        dispatchRegisterModal: RegisterModalAction,
+        dispatchLogout: LogoutAction
     }, dispatch)
 }
 
