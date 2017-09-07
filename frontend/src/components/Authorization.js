@@ -14,7 +14,7 @@ class Authorization extends Component {
     }
 
     handleLogoutClick() {
-        this.props.dispatchLogout(false);
+        this.props.dispatchLogout({login:false});
     }
 
     handleLoginClick() {

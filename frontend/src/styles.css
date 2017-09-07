@@ -259,3 +259,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* line 251, ../compass/sass/styles.scss */
+.invalid {
+  color: #C64038;
+  font-size: .8rem;
+  letter-spacing: .1rem;
+}

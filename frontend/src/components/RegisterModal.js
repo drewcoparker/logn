@@ -9,14 +9,26 @@ class RegisterModal extends Component {
         super(props);
         this.state = {
             msg: '',
+            emailMsg: ''
 
         }
         this.closeModal = this.closeModal.bind(this);
         this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
+        this.handleEmailValidation = this.handleEmailValidation.bind(this);
     }
 
     closeModal() {
         this.props.dispatchModal(false);
+    }
+
+    handleEmailValidation(event) {
+        var email = event.target.value;
+        var validEmail = /^([\w_\.\-\+])+\@([\w\-]+\.)+([\w]{2,10})+$/.test(email);
+        if (!validEmail) {
+            this.setState({emailMsg: 'Invalid email'});
+        } else {
+            this.setState({emailMsg: ''});
+        }
     }
 
     handleRegisterSubmit(event){
@@ -70,7 +82,12 @@ class RegisterModal extends Component {
                                 <input name="firstName" className="modal-input" placeholder="First name" type="text" />
                                 <input name="lastName" className="modal-input" placeholder="Last name" type="text" />
                                 <input name="username" className="modal-input" placeholder="Username" type="text" />
-                                <input name="email" className="modal-input" placeholder="Email Address" type="text" />
+                                <div className="invalid">{this.state.emailMsg}</div>
+                                <input name="email"
+                                       className="modal-input"
+                                       placeholder="Email Address"
+                                       onBlur={this.handleEmailValidation}
+                                       type="text" />
                                 <input name="password" className="modal-input" placeholder="Password (case sensitive)" type="password" />
                                 <button className="login-submit-btn" type="submit">Submit</button>
                             </form>
