@@ -4,14 +4,19 @@ import { connect } from 'react-redux';
 import RegisterModalAction from '../actions/RegisterModalAction';
 import RegisterAction from '../actions/RegisterAction';
 
+const inputStyle = {
+
+}
+
 class RegisterModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
             msg: '',
-            emailMsg: ''
-
+            emailMsg: '',
+            focused: false
         }
+
         this.closeModal = this.closeModal.bind(this);
         this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
         this.handleEmailValidation = this.handleEmailValidation.bind(this);
@@ -39,20 +44,6 @@ class RegisterModal extends Component {
             email = event.target[3].value,
             password = event.target[4].value;
 
-        // var eventObj = {
-        //     firstName : event.target[0].value,
-        //     lastName : event.target[1].value,
-        //     username : event.target[2].value,
-        //     email : event.target[3].value,
-        //     password : event.target[4].value
-        // }
-        //
-        // for (value in eventObj) {
-        //     if (!value) {
-        //
-        //     }
-        // }
-
         this.props.registerSubmit({
             firstName: firstName,
             lastName: lastName,
@@ -79,16 +70,33 @@ class RegisterModal extends Component {
                         </div>
                         <div className="modal-body">
                             <form onSubmit={this.handleRegisterSubmit}>
-                                <input name="firstName" className="modal-input" placeholder="First name" type="text" />
-                                <input name="lastName" className="modal-input" placeholder="Last name" type="text" />
-                                <input name="username" className="modal-input" placeholder="Username" type="text" />
+                                <input name="firstName"
+                                       onFocus={this.focused}
+                                       className="modal-input"
+                                       placeholder="First name"
+                                       type="text" />
+                                <input name="lastName"
+                                       onFocus={this.focused}
+                                       className="modal-input"
+                                       placeholder="Last name"
+                                       type="text" />
+                                <input name="username"
+                                       onFocus={this.focused}
+                                       className="modal-input"
+                                       placeholder="Username"
+                                       type="text" />
                                 <div className="invalid">{this.state.emailMsg}</div>
                                 <input name="email"
+                                       onFocus={this.focused}
                                        className="modal-input"
                                        placeholder="Email Address"
                                        onBlur={this.handleEmailValidation}
                                        type="text" />
-                                <input name="password" className="modal-input" placeholder="Password (case sensitive)" type="password" />
+                                <input name="password"
+                                       onFocus={this.focused}
+                                       className="modal-input"
+                                       placeholder="Password (case sensitive)"
+                                       type="password" />
                                 <button className="login-submit-btn" type="submit">Submit</button>
                             </form>
                         </div>
