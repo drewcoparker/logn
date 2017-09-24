@@ -31,6 +31,7 @@ class RegisterModal extends Component {
         var validEmail = /^([\w_\.\-\+])+\@([\w\-]+\.)+([\w]{2,10})+$/.test(email);
         if (!validEmail) {
             this.setState({emailMsg: 'Invalid email'});
+        }
     }
 
     handleRegisterSubmit(event){
