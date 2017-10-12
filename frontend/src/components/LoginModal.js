@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 import LoginModalAction from '../actions/LoginModalAction';
 import LoginAction from '../actions/LoginAction';
@@ -70,11 +71,16 @@ class LoginModal extends Component {
                             <h1>Login</h1>
                         </div>
                         <div className="modal-body">
+
                             <form onSubmit={this.handleLoginSubmit}>
-                                <input className="modal-input" placeholder="Username" type="text" />
-                                <input className="modal-input" placeholder="Password (case sensitive)" type="password" />
+                                <input className="modal-input"
+                                       placeholder="Username"
+                                       type="text" />
+                                <input className="modal-input"
+                                       placeholder="Password (case sensitive)" type="password" />
                                 <button className="login-submit-btn" type="submit">Login</button>
                             </form>
+
                             <div className="login-info">
                                 <div className="login-info-header"><span>Login Response:</span></div>
                                 <div className="login-info-body">
@@ -84,7 +90,11 @@ class LoginModal extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="overlay" onClick={this.closeModal}></div>
+                <ReactCSSTransitionGroup
+                    transitionAppear={true}
+                    transitionName="overlay">
+                    <div className="overlay" onClick={this.closeModal}></div>
+                </ReactCSSTransitionGroup>
             </div>
         );
     }

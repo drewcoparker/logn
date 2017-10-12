@@ -98,6 +98,17 @@ body {
 }
 
 /* line 103, ../compass/sass/styles.scss */
+.overlay-appear {
+  opacity: 0.01;
+}
+
+/* line 107, ../compass/sass/styles.scss */
+.overlay-appear.overlay-appear-active {
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+}
+
+/* line 112, ../compass/sass/styles.scss */
 .modal {
   position: absolute;
   top: 50%;
@@ -112,31 +123,31 @@ body {
   border-radius: 5px;
 }
 
-/* line 117, ../compass/sass/styles.scss */
+/* line 126, ../compass/sass/styles.scss */
 .modal-wrapper {
   position: relative;
 }
 
-/* line 121, ../compass/sass/styles.scss */
+/* line 130, ../compass/sass/styles.scss */
 .button-wrapper {
   position: absolute;
   top: -23px;
   right: 8px;
 }
 
-/* line 127, ../compass/sass/styles.scss */
+/* line 136, ../compass/sass/styles.scss */
 .close-modal-button {
   height: 40px;
   width: 40px;
   position: relative;
   border-radius: 3px;
 }
-/* line 132, ../compass/sass/styles.scss */
+/* line 141, ../compass/sass/styles.scss */
 .close-modal-button:hover {
   cursor: pointer;
 }
 
-/* line 137, ../compass/sass/styles.scss */
+/* line 146, ../compass/sass/styles.scss */
 .close-modal-button:after {
   position: absolute;
   top: 0;
@@ -150,7 +161,7 @@ body {
   text-align: center;
 }
 
-/* line 149, ../compass/sass/styles.scss */
+/* line 158, ../compass/sass/styles.scss */
 .modal-header {
   font-family: "Asul";
   text-align: center;
@@ -158,13 +169,13 @@ body {
   letter-spacing: 0.2rem;
 }
 
-/* line 156, ../compass/sass/styles.scss */
+/* line 165, ../compass/sass/styles.scss */
 .modal-body {
   margin: 20px 40px;
   position: relative;
 }
 
-/* line 161, ../compass/sass/styles.scss */
+/* line 170, ../compass/sass/styles.scss */
 .modal-input {
   border: 1px solid #ccc;
   height: 36px;
@@ -175,7 +186,7 @@ body {
   font-family: helvetica;
   font-size: 1.2rem;
 }
-/* line 170, ../compass/sass/styles.scss */
+/* line 179, ../compass/sass/styles.scss */
 .modal-input:focus {
   outline: none !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -184,14 +195,14 @@ body {
   box-shadow: 0 0 5px rgba(2, 194, 194, 0.5);
 }
 
-/* line 179, ../compass/sass/styles.scss */
+/* line 188, ../compass/sass/styles.scss */
 ::placeholder {
   color: rgba(153, 153, 153, 0.45);
   letter-spacing: 0.12rem;
   font-size: 1rem;
 }
 
-/* line 185, ../compass/sass/styles.scss */
+/* line 194, ../compass/sass/styles.scss */
 .login-submit-btn {
   margin-bottom: 20px;
   border: none;
@@ -204,7 +215,7 @@ body {
   box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.2);
   color: #fff;
 }
-/* line 199, ../compass/sass/styles.scss */
+/* line 208, ../compass/sass/styles.scss */
 .login-submit-btn:hover {
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -212,18 +223,18 @@ body {
   box-shadow: 0 0 5px #36F1CD;
   letter-spacing: 0.18rem;
 }
-/* line 206, ../compass/sass/styles.scss */
+/* line 215, ../compass/sass/styles.scss */
 .login-submit-btn:focus {
   outline: 0;
 }
 
-/* line 211, ../compass/sass/styles.scss */
+/* line 220, ../compass/sass/styles.scss */
 .login-info {
   margin-top: 20px;
   width: 100%;
 }
 
-/* line 218, ../compass/sass/styles.scss */
+/* line 227, ../compass/sass/styles.scss */
 .login-info-header {
   position: relative;
   height: 36px;
@@ -233,7 +244,7 @@ body {
   text-align: center;
   border: 1px solid #ccc;
 }
-/* line 226, ../compass/sass/styles.scss */
+/* line 235, ../compass/sass/styles.scss */
 .login-info-header span {
   position: absolute;
   top: 50%;
@@ -241,7 +252,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* line 234, ../compass/sass/styles.scss */
+/* line 243, ../compass/sass/styles.scss */
 .login-info-body {
   position: relative;
   height: 70px;
@@ -252,7 +263,7 @@ body {
   border-top: none;
   text-transform: capitalize;
 }
-/* line 243, ../compass/sass/styles.scss */
+/* line 252, ../compass/sass/styles.scss */
 .login-info-body span {
   position: absolute;
   top: 43%;
@@ -260,7 +271,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* line 251, ../compass/sass/styles.scss */
+/* line 260, ../compass/sass/styles.scss */
 .invalid {
   color: #C64038;
   font-size: .8rem;

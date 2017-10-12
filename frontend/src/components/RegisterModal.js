@@ -69,29 +69,35 @@ class RegisterModal extends Component {
                             <h1>Register</h1>
                         </div>
                         <div className="modal-body">
+
                             <form onSubmit={this.handleRegisterSubmit}>
                                 <input name="firstName"
                                        onFocus={this.focused}
                                        className="modal-input"
                                        placeholder="First name"
                                        type="text" />
+
                                 <input name="lastName"
                                        onFocus={this.focused}
                                        className="modal-input"
                                        placeholder="Last name"
                                        type="text" />
+
                                 <input name="username"
                                        onFocus={this.focused}
                                        className="modal-input"
                                        placeholder="Username"
                                        type="text" />
+
                                 <div className="invalid">{this.state.emailMsg}</div>
+
                                 <input name="email"
                                        onFocus={this.focused}
                                        className="modal-input"
                                        placeholder="Email Address"
                                        onBlur={this.handleEmailValidation}
                                        type="text" />
+
                                 <input name="password"
                                        onFocus={this.focused}
                                        className="modal-input"
@@ -99,6 +105,7 @@ class RegisterModal extends Component {
                                        type="password" />
                                 <button className="login-submit-btn" type="submit">Submit</button>
                             </form>
+
                         </div>
                     </div>
                 </div>
